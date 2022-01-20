@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trayectos</title>
+</head>
+<body>
+
+    <br>
+    <br>
+    <br>
+    
+    <h3 style="color: blue;">Listao de Trayectos:</h3>
+
+    {% for p in Trayectos %}
+
+        <li>{{p}}</li>  
+        <button>
+            <a href="{% url 'EliminarTrayecto' p.id %}"> Eliminar</a>
+            <a href="{% url 'EditarTrayecto' p.nombre %}"> Editar</a>
+        </button>
+
+
+    {% endfor %}
+
+    <br>
+    <a href="{% url 'AgregaTrayecto' %}">Agregar otro Trayecto</a>
+
+    
+</body>
+</html>

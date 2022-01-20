@@ -1,0 +1,26 @@
+{% extends 'AppVuelos/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<br>
+<br>
+<br>
+
+<h3 style="color: blue;">Trayectos</h3>
+
+<form action="{% url 'AgregaTrayecto' %}" method="POST">{% csrf_token %}
+
+    <!-- Acá está la magia de Django-->
+    
+    <table>
+
+        {{ form.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+</form>
+
+
+{% endblock contenidoQueCambia %}
