@@ -1,0 +1,25 @@
+
+<!--Detalle de Operadores-->
+<!--Consulta sobre operador-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+</head>
+
+
+<body>
+
+    <p>Nombre del Trayecto: <i>{{ trayecto.nombre }}</i></p>
+    <p>Direccion: <i>{{ trayecto.direccion }}</i></p>
+    <p>Web: <i>{{ trayecto.web }}</i></p>
+    <p>Telefono: <i>{{ trayecto.telefono }}</i></p>
+    <p>
+        <a href="{% url 'List_Trayectos' %}">Regresar</a>
+    </p>
+
+</body>
+</html>

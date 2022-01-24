@@ -1,31 +1,26 @@
 from django.db import models
 
-class Trayecto(models.Model):
-    ruta=models.CharField
-    fechaSalida=models.CharField
-    fechaLlegada=models.CharField
-    
-    def __str__(self):
-        return f'{self.ruta} '
-    
+# Create your models here.
 class Operador(models.Model):
-    nombre=models.CharField(max_length=10)
-    direccion=models.CharField(max_length=30)
-    web=models.CharField(max_length=20)
-    telefono=models.CharField(max_length=10)
-    
+       
+    nombre=models.CharField(max_length=40, null=True)
+    direccion=models.CharField(max_length=40, null=True)
+    web=models.CharField(max_length=40, null=True)
+    telefono=models.CharField(max_length=12, null=True)
+
+
     def __str__(self):
-        return f'{self.nombre}'
-
-class Cliente(models.Model):
-    nombre=models.CharField(max_length=10)
-    email=models.EmailField()
-    telefono=models.CharField(max_length=10)
+        return self.nombre
     
+    
+class Trayecto(models.Model):
+       
+    ruta=models.CharField(max_length=10, null=True)
+    fechaSalida=models.CharField(max_length=40, null=True)
+    horaSalida=models.IntegerField()
+    horaLlegada=models.IntegerField()
+
+
     def __str__(self):
-        return f'{self.nombre} {self.email}'
-
-
-
-
-    
+        return self.ruta
+       

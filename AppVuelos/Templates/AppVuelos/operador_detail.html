@@ -1,0 +1,25 @@
+
+<!--Detalle de Operadores-->
+<!--Consulta sobre operador-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+</head>
+
+
+<body>
+
+    <p>Nombre del Operador: <i>{{ operador.nombre }}</i></p>
+    <p>Direccion: <i>{{ operador.direccion }}</i></p>
+    <p>Web: <i>{{ operador.web }}</i></p>
+    <p>Telefono: <i>{{ operador.telefono }}</i></p>
+    <p>
+        <a href="{% url 'List' %}">Regresar</a>
+    </p>
+
+</body>
+</html>

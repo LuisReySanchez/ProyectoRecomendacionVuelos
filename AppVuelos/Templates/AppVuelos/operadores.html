@@ -7,19 +7,19 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h3>Datos de Trayectos: </h3>
+    <h3>Datos de Operadores: </h3>
     <ul>
-        {% for tra in object_list %}
+        {% for ope in object_list %}
 
             <li>
-                <p>Nombre: {{ tra.nombre }} </p>
+                <p>Nombre: {{ ope.nombre }} </p>
             </li>
 
         {% endfor %}
     </ul>
 
     <p>
-        <a href="{% url 'List_Trayectos' %}">Detalle</a>
+        <a href="{% url 'List' %}">Detalle</a>
     </p>
 
 {% endblock %}

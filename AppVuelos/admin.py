@@ -1,10 +1,7 @@
 from django.contrib import admin
+import AppVuelos
 
-from AppVuelos.models import Trayecto,Operador, Cliente
+from AppVuelos.models import Operador, Trayecto
 
-
-# Register your models here.
-admin.site.register(Trayecto)
 admin.site.register(Operador)
-admin.site.register(Cliente)
-
+admin.site.register(Trayecto)

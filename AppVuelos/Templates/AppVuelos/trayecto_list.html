@@ -1,0 +1,30 @@
+
+<!--Listado de Operadores + CRUD-->
+
+<!-- Herencia de padre.HTML-->
+
+{% extends "AppVuelos/padre.html" %}
+
+{% load static %}
+{% block contenidoQueCambia %}
+    <h1>Datos de Trayectos: </h1>
+    <ul>
+        {% for tray in object_list %}
+
+            <li>
+                <p>Nombre: {{ tray.nombre }} </p>
+                <p> 
+                    <a href="{% url 'Detail_Trayectos' tray.id %}">Ver |</a>  
+                    <a href="{% url 'Edit_Trayectos' tray.id %}">Editar |</a>  
+                    <a href="{% url 'Delete_Trayectos' tray.id %}">Borrar</a> 
+                </p> 
+            </li>
+
+        {% endfor %}
+    </ul>
+
+    <!--: Agregar Operador-->
+    <a href="{% url 'New_Trayectos'  %}">Nuevo</a>
+
+
+    {% endblock %}

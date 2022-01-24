@@ -11,11 +11,9 @@
 </head>
 <body>
 
-    <form action="OperadorFormulario",method="post">
+    <form action="TrayectoFormulario" ,method="post">
         {% csrf_token %}
-        
         {{ form.as_p }}
-
         <input type="submit" value="Crear" />
     </form>
     
