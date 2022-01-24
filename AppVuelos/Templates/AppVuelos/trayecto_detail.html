@@ -13,13 +13,14 @@
 
 <body>
 
-    <p>Nombre del Trayecto: <i>{{ trayecto.nombre }}</i></p>
-    <p>Direccion: <i>{{ trayecto.direccion }}</i></p>
-    <p>Web: <i>{{ trayecto.web }}</i></p>
-    <p>Telefono: <i>{{ trayecto.telefono }}</i></p>
+    <p>Nombre del Trayecto: <i>{{ trayecto.ruta }}</i></p>
+    <p>Fecha Salida: <i>{{ trayecto.fechaSalida }}</i></p>
+    <p>Hora Salida: <i>{{ trayecto.horaSalida }}</i></p>
+    <p>Hora Llegada: <i>{{ trayecto.horaLlegada }}</i></p>
     <p>
         <a href="{% url 'List_Trayectos' %}">Regresar</a>
     </p>
+
 
 </body>
 </html>

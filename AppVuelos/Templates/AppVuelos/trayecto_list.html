@@ -9,14 +9,14 @@
 {% block contenidoQueCambia %}
     <h1>Datos de Trayectos: </h1>
     <ul>
-        {% for tray in object_list %}
+        {% for t in object_list %}
 
             <li>
-                <p>Nombre: {{ tray.nombre }} </p>
+                <p>Nombre: {{ t.ruta }} </p>
                 <p> 
-                    <a href="{% url 'Detail_Trayectos' tray.id %}">Ver |</a>  
-                    <a href="{% url 'Edit_Trayectos' tray.id %}">Editar |</a>  
-                    <a href="{% url 'Delete_Trayectos' tray.id %}">Borrar</a> 
+                    <a href="{% url 'Detail_Trayectos' t.id %}">Ver |</a>  
+                    <a href="{% url 'Edit_Trayectos' t.id %}">Editar |</a>  
+                    <a href="{% url 'Delete_Trayectos' t.id %}">Borrar</a> 
                 </p> 
             </li>
 

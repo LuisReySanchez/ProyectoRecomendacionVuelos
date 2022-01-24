@@ -9,10 +9,10 @@
 {% block contenidoQueCambia %}
     <h3>Datos de Trayectos: </h3>
     <ul>
-        {% for tra in object_list %}
+        {% for t in object_list %}
 
             <li>
-                <p>Nombre: {{ tra.nombre }} </p>
+                <p>Nombre: {{ t.ruta}} - {{t.fechaSalida}} </p>
             </li>
 
         {% endfor %}

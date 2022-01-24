@@ -22,5 +22,10 @@ class Trayecto(models.Model):
 
 
     def __str__(self):
-        return self.ruta
+        return f'{self.ruta} - {self.fechaSalida} - {self.horaSalida}'
+
+# class Avion(models.Model):
+       
+#     modelo=models.CharField(max_length=10, null=True)
+#     capacidad=models.IntegerField()
        

@@ -8,23 +8,21 @@
 </head>
 <body>
     
-<p>Resultados para las busqueda: {{ruta}}</p>
+<p>Resultados para las busqueda: {{ ruta }}</p>
 
+    {% if fechaSalida %}
+        <ul>
 
-{% if fechaSalida %}
-<ul>
+            {% for fecha in fechaSalida %}
+                <li>
+                    {{fecha}}
+                </li>
+            {% endfor %}
 
+        </ul>
+        
+    {% endif %}
+   
 
-{% for fecha in fechaSalida %}
-    <li>
-        {{fecha}}
-    </li>
-{% endfor %}
-
-</ul>
-    
-{% endif %}
-    
-{}
 </body>
 </html>
