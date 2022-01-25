@@ -23,5 +23,5 @@ Elaborado por: Luis Rey Sanchez
 	- Login 
 	
 		○ SuperUser:
-		usuario:lreysanchez
+		usuario:luis
 		pwd:123456
