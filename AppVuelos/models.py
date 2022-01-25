@@ -24,8 +24,10 @@ class Trayecto(models.Model):
     def __str__(self):
         return f'{self.ruta} - {self.fechaSalida} - {self.horaSalida}'
 
-# class Avion(models.Model):
-       
-#     modelo=models.CharField(max_length=10, null=True)
-#     capacidad=models.IntegerField()
+# class Itinerario(models.Model):
+#     nombre=models.CharField(max_length=40, null=True)   
+#     ruta=models.CharField(max_length=10, null=True)
+#     fechaSalida=models.CharField(max_length=40, null=True)
+#     horaSalida=models.IntegerField()
+#     horaEstimada=models.IntegerField()
        

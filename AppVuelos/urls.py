@@ -24,4 +24,7 @@ urlpatterns = [
     
     path('busquedaRuta/', views.busquedaRuta, name='busquedaRuta'),
     path('buscar/', views.buscar, name='buscar'),
+    
+    #Login
+    path('login/', views.login_request, name='Login'),
 ]

@@ -10,6 +10,10 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+
+
 # Inicio
 ############################################################################
 
@@ -118,4 +122,42 @@ def buscar(request):
             return render(request,"AppVuelos/resultadosBusqueda.html",{'fechaSalida':fechaSalida})
       else:
             return HttpResponse('No enviaste datos')
+
+
+############################################################################
+# LOGIN
+############################################################################
+
+def login_request(request):
+      
+      if (request.method =="POST"):
+            
+            form=AuthenticationForm(request, data=request.POST)
+            
+            if form.is_valid():
+                 
+                 data=form.cleaned_data
+                 
+                 user=authenticate(username=data['username'],password=data['password'])
+                 
+                 if user is not None:
+                       
+                       login(request,user)
+                        
+                       return render(request,"AppVuelos/inicio.html",{'mensaje':f'Bienvenido {user.get_username()}'})
+      
+                 else:
+                       return render(request,"AppVuelos/inicio.html",{'mensaje':'Fallo la autenticacion intentalo otra vez'})
+                 
+            else:
+                
+                return render(request,"AppVuelos/inicio.html",{'mensaje':'Formulario erroneo'})
+      
+      else:
+            form=AuthenticationForm()
+            
+            return render(request,"AppVuelos/login.html",{'form':form})
+      
+      
+      
       
