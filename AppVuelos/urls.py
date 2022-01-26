@@ -1,6 +1,9 @@
+from re import template
 from django.urls import path
 
 from AppVuelos import views
+
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
    
@@ -27,4 +30,9 @@ urlpatterns = [
     
     #Login
     path('login/', views.login_request, name='Login'),
+    path('register/', views.register, name='Register'),
+    
+    #Logout
+    path('logout/', LogoutView.as_view(template_name="AppVuelos/logout.html"), name='Logout'),
+    
 ]

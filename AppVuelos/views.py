@@ -13,6 +13,13 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 
+from django.contrib.auth.forms import UserCreationForm
+
+#Mixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+#Decoradores
+from django.contrib.auth.decorators import login_required
 
 # Inicio
 ############################################################################
@@ -25,8 +32,8 @@ def inicio(request):
 # OPERADOR
 ############################################################################
 
-# Listado de Operadores
-class OperadoresList(ListView):
+# Listado de Operadores + Mixin
+class OperadoresList(LoginRequiredMixin,ListView):
     
       model = Operador
       template_name = "AppVuelos/operadores.html"
@@ -107,7 +114,8 @@ class TrayectoCreate(CreateView):
 # Busqueda de Fechas de Salida para una Ruta
 ############################################################################
 
-# View de Busqueda
+# View de Busqueda con autenticacion correcta
+@login_required
 def busquedaRuta(request):
       return render(request,"AppVuelos/busquedaRuta.html")
 
@@ -126,6 +134,9 @@ def buscar(request):
 
 ############################################################################
 # LOGIN
+############################################################################
+
+# Autenticacion
 ############################################################################
 
 def login_request(request):
@@ -158,6 +169,26 @@ def login_request(request):
             
             return render(request,"AppVuelos/login.html",{'form':form})
       
+# Regitro
+############################################################################
+
+def register(request):
+      if request.method=="POST":
+            form=UserCreationForm(request.POST)
+            if form.is_valid():
+                  username=form.cleaned_data['username']
+                  
+                  form.save()
+                  return render(request,"AppVuelos/inicio.html",{"mensaje":"Usuario creado con exito"})
       
+            else:
+                  return render(request,"AppVuelos/inicio.html",{"mensaje":"Usuario no creado"})
+                   
+                  
+      else:
+            # formulario de creacion de instancia
+            form= UserCreationForm()
+            
+            return render(request,"AppVuelos/registro.html",{"form":form})     
       
-      
+    
