@@ -1,7 +1,7 @@
 from dataclasses import fields
 from django.shortcuts import render, HttpResponse
 
-from AppVuelos.forms import OperadorFormulario,TrayectoFormulario
+from AppVuelos.forms import OperadorFormulario,TrayectoFormulario, UserEditForm
 
 from AppVuelos.models import Operador, Trayecto
 
@@ -66,11 +66,6 @@ class OperadorCreate(CreateView):
       model = Operador
       fields = ['nombre', 'direccion','web','telefono']
       success_url = '/listaOperadores' 
-
-
-
-
-
 
 ############################################################################
 # TRAYECTO
@@ -191,4 +186,36 @@ def register(request):
             
             return render(request,"AppVuelos/registro.html",{"form":form})     
       
-    
+############################################################################
+# PERFIL
+############################################################################
+
+# Edición de Usuario
+############################################################################
+def editarPerfil(request):
+      
+      #Instancia Login
+      usuario=request.user
+      
+      if request.method=="POST":
+            miFormulario=UserEditForm(request.POST)
+            
+            if miFormulario.is_valid():
+                  informacion=miFormulario.clean_data
+                  
+                  #Datos por modificar
+                  usuario.email=informacion['email']
+                  usuario.password1=informacion['password1']
+                  usuario.password2=informacion['password2']
+                  
+                  usuario.save()
+                  
+                  return render(request,"AppVuelos/inicio.html" )
+            
+      else:
+            miFormulario=UserEditForm(initial={'email':usuario.email})
+      
+            return render(request, "AppVuelos/editarPerfil.html", {"miFormulario":miFormulario,"usuario":usuario})
+      
+      
+      

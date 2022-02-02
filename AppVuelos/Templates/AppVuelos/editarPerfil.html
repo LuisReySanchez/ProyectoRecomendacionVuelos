@@ -1,0 +1,25 @@
+{% extends 'AppVuelos/padre.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+<p>
+    <!--mensaje Login-->
+    <h1>Formulario - Editar Perfil</h1>
+    <h1>de {{usuario}}</h1>
+    
+        
+<form action="", method="post">{{% csrf_token %}}
+    
+    <table>
+        {{miFormulario.as_table}}
+    </table>
+
+    <input type="submit" value="Enviar">
+
+
+</form>    
+   
+{% endblock contenidoQueCambia %}

@@ -18,6 +18,7 @@ from django.urls import path, include
 #from AppCoder.views import * #Ya no seria necesario :) 
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('AppVuelos.urls')),
