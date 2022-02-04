@@ -8,24 +8,55 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Modern NavBar + Underline </title>
+        <title>Principal </title>
 
-        <!-- <link rel="stylesheet" href="/AppVuelos/static/AppVuelos/css/styles.css"> -->
+        
 
-        <link rel="stylesheet" href="{% static '/AppVuelos/css/styles.css' %}">
-    
-    
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'AppVuelos/images/Portada.jpg' %}">
+
+        
+
+        <link rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
+
+        <!-- <img  src="{% static 'AppVuelos/images/Portada.jpg' %}" alt="My image"> -->
+
+        <!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     
 
     </head>
 
 <body>
+   
+    <div class="container">
+        <div class="navbar">
+
+            <ul>
+                <li>
+                    <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a> 
+                </li>
+                
+                <li>
+                    <a class="navbar-brand" href="{% url 'Operadores' %}">Operadores</a>
+
+                </li>
+                
+                <li>
+                    <a class="navbar-brand" href="{% url 'Trayectos' %}">Trayectos</a>
+
+
+                </li>
+                
+                    
+            </ul>
+
+    
+        </div>
         
+    </div>
+
         <!-- Navigation-->
 
-        <nav >
+        <!-- <nav class="container">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 
@@ -38,7 +69,7 @@
 
             </div>
 
-        </nav>
+        </nav> -->
 
        
        {% block contenidoQueCambia %}

@@ -1,31 +1,103 @@
+
+
+/* body
+{
+    background: white url('AppVuelos/images/Portada.jpg');
+    
+} */
+
+/* .container{
+background-image: url('AppVuelos/images/Portada.jpg') 50% 0 no-repeat fixed;
+color: rgb(218, 0, 0);
+height: 50px;
+padding: 50px 0 0 0; 
+} */
+
+
+
+/* .container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)), url(AppVuelos/images/Portada.jpg);
+    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)),;
+    color: #fff;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: #111 0px 0px 10px;
+}    */
+
+
+/* .container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)),;
+    color: #fff;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: #111 0px 0px 10px;
+}    */
+
+
+/* .container {
+    width: 100%;
+    height: 100vh;
+    background: url(AppVuelos/images/Portada.jpg) 50% 0 no-repeat fixed;
+    color: rgb(19, 194, 107);
+    height: 650px;
+    padding: 100px 0 0 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0 0 0;  
+} */
+
 *
 {
     margin: 0;
     padding: 0;
 }
-
 .container {
-    width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)), url(/css/Portada.jpg);
+    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)), url(AppVuelos/images/Portada.jpg);
+    width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
+    }
+    .navbar
+    {
+        width: 80%;
+        margin: auto;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;  }
 
-.navbar {
+
+
+
+/* .container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)), url(AppVuelos/images/Portada.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+/* .navbar {
     width: 80%;
     margin: auto;
     padding: 35px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
-.logo {
-    width: 130px;
-    cursor: pointer;
-}
 
 .navbar ul li {
     list-style: none;
@@ -95,7 +167,7 @@ p.pie2 {
 .imgINS img{ 
     position: absolute;
     top: 15px;
-    left: 180px;
+    left: 1800px;
     
     transition:all 0.5s ease-out; border-radius:50px;
     }
@@ -108,7 +180,7 @@ p.pie2 {
 
 /* Login*/
 
-*{box-sizing:border-box;}
+/* *{box-sizing:border-box;}
 
 form{
 	width:300px;
@@ -160,4 +232,4 @@ textarea{
 	
 	resize:none;
 	display:block;
-}
+} */
