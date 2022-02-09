@@ -1,5 +1,5 @@
 from dataclasses import fields
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse
 
 from AppVuelos.forms import OperadorFormulario,TrayectoFormulario, UserEditForm
 
@@ -10,10 +10,15 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
+#Autenticacion
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 
 from django.contrib.auth.forms import UserCreationForm
+
+#Registro 
+from AppVuelos.forms import  UserRegisterForm
+
 
 #Mixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,6 +33,10 @@ def inicio(request):
 
       return render(request, "AppVuelos/inicio.html")
 
+
+def mantenimiento(request):
+    
+      return render(request, "AppVuelos/mantenimiento.html")
 ############################################################################
 # OPERADOR
 ############################################################################
@@ -156,35 +165,33 @@ def login_request(request):
                        return render(request,"AppVuelos/inicio.html",{'mensaje':'Fallo la autenticacion intentalo otra vez'})
                  
             else:
-                
-                return render(request,"AppVuelos/inicio.html",{'mensaje':'Formulario erroneo'})
+                        return render(request,"AppVuelos/inicio.html",{'mensaje':'Formulario erroneo'})
       
       else:
             form=AuthenticationForm()
             
-            return render(request,"AppVuelos/login.html",{'form':form})
+      return render(request,"AppVuelos/login.html",{'form':form})
       
-# Regitro
+      
+
+
+# Registro
 ############################################################################
 
 def register(request):
       if request.method=="POST":
-            form=UserCreationForm(request.POST)
+            form=UserRegisterForm(request.POST)
             if form.is_valid():
                   username=form.cleaned_data['username']
                   
                   form.save()
-                  return render(request,"AppVuelos/inicio.html",{"mensaje":"Usuario creado con exito"})
-      
-            else:
-                  return render(request,"AppVuelos/inicio.html",{"mensaje":"Usuario no creado"})
-                   
+                  return render(request,"AppVuelos/inicio.html",{"mensaje":"Usuario creado"})
                   
       else:
             # formulario de creacion de instancia
-            form= UserCreationForm()
+            form= UserRegisterForm()
             
-            return render(request,"AppVuelos/registro.html",{"form":form})     
+      return render(request,"AppVuelos/registro.html",{"form":form})     
       
 ############################################################################
 # PERFIL

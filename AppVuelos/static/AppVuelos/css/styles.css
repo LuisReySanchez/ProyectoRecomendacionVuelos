@@ -55,20 +55,26 @@ padding: 50px 0 0 0;
     padding: 100px 0 0 0;  
 } */
 
+
 *
 {
     margin: 0;
     padding: 0;
 }
 .container {
-    height: 100vh;
-    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)), url(AppVuelos/images/Portada.jpg);
     width: 100%;
+    height: 100vh;
+    background-image: url(https://www.lugaresturisticosdeargentina.com/wp-content/uploads/2018/05/AGENCIAS-DE-TURISMO.jpg);
+   
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    }
-    .navbar
+
+}
+
+.navbar
     {
         width: 80%;
         margin: auto;
@@ -78,79 +84,68 @@ padding: 50px 0 0 0;
         justify-content: space-between;  }
 
 
+    .navbar ul li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
+        position: relative;
 
+    }
 
-/* .container {
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(5, 10, 5, 0.80), rgba(259, 231, 159, 0.80)), url(AppVuelos/images/Portada.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-} */
+    .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: Roboto, "sans-serif";
+        font-size: 1.2rem;
+    }
 
-/* .navbar {
-    width: 80%;
-    margin: auto;
-    padding: 35px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-} */
+    .navbar ul li::before {
+        content: "";
+        height: 3px;
+        width: 0%;
+        background: hsl(204, 70%, 53%);
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        transition: 0.4s ease-out;
+    }
 
+    .navbar ul li:hover::before {
+        width: 100%;
+    }
 
-.navbar ul li {
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    position: relative;
+    footer {
+        position: absolute;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
 
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: white;
-    font-family: Roboto, "sans-serif";
-    font-size: 1.2rem;
-}
-
-.navbar ul li::before {
-    content: "";
-    height: 3px;
-    width: 0%;
-    background: yellowgreen;
-    position: absolute;
-    left: 0;
-    bottom: -12px;
-    transition: 0.4s ease-out;
-}
-
-.navbar ul li:hover::before {
-    width: 100%;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    height: 60px;
-    width: 100%;
-}
+    }
 
 ul.pie1 li{
+
     display: inline;
     padding: 10px 20px;
 
 }
 
-p.pie2 {
-    
-    padding: 10px 20px;
+ul.pie1 li{
 
+    display: inline;
+    padding: 10px 20px;
+    text-shadow: 0 0 3px white;
 }
 
 
+p.pie2 {
+    font-weight: bold;   
+    padding: 10px 20px;
+    text-shadow: 0 0 3px white;
+}
 
+/* --------------------------------------------------------- */
 /* Estilos CSS RRSS:*/
+/* --------------------------------------------------------- */
 .imgFB img{ 
     position: absolute;
     top: 15px;
@@ -177,7 +172,18 @@ p.pie2 {
     
     }
 
+/* --------------------------------------------------------- */
+/* Header*/
+/* --------------------------------------------------------- */
+.header_inic{
+        position: absolute;
+        top: 100px;
+        left: 220px;
+        color: white;
+        font-size: 30px;
+      
 
+    }
 /* Login*/
 
 /* *{box-sizing:border-box;}
@@ -232,4 +238,131 @@ textarea{
 	
 	resize:none;
 	display:block;
-} */
+}  */
+
+
+
+
+
+
+/* --------------------------------------------------------- */
+/* Mantenimiento */
+/* --------------------------------------------------------- */
+.mantenimiento{
+    width:600px;
+    height:400px;
+    padding:32px;
+    border:1px solid #000;
+    border-radius:10px;
+    margin-top:-200px;
+    margin-left:-300px;
+    background-color:rgb(255, 255, 255);
+    position:fixed;
+    top:50%;
+    left:50%;
+}
+
+.mantenimiento h1{
+    font-size:3em;
+    text-align:center;
+    padding:16px;
+
+}
+
+.mantenimiento div{
+    text-align:center;
+    padding: 180px 0 0 0;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQl8IIFCsB8xlth3d6UyFE8BTZ6ezyoE6t4mfM6-vNKrFDrXUBeUMdUDuN21d6LTNPqXU&usqp=CAU);
+    background-repeat : no-repeat;
+	background-position: 100px 5px ;
+    
+}
+
+/* --------------------------------------------------------- */
+/* Boton Ingreso */
+/* --------------------------------------------------------- */
+.btn-primary {
+    background-color: #0d6efd; 
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    
+}
+.btn-primary:hover
+{
+    background-color: #7ca9ec;
+    color: white;
+}
+
+
+/* Login */
+
+.login {
+    width: 500px;
+    padding: 10% 0 0;
+    margin: auto;
+  }
+  .form {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: left;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form button {
+        font-family:  Arial;
+        text-transform: uppercase;
+        outline: 0;
+        background: #0d6efd;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight:bold;
+        -webkit-transition: all 0.5 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+      }
+      .form input {
+        font-family: "Lato", sans-serif;
+        outline: 0;
+        background: #e7e4e4;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        
+      }
+      body {
+        background: #9ab2d6; 
+        font-family: "Lato", sans-serif;
+            
+      }
+    
+      form label{
+        width:72px;
+        font-weight:bold;
+       
+       
+    }
+
+    .form span
+    {font-size: 6px;color: white;
+    }
+
+    .form li
+    {font-size: 3px;color: white;}

@@ -1,24 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-    
-<form action="" method="POST">
+        <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
+        
+</head>
 
-    <!--token POST-->
-    {% csrf_token %}
-    
-    {{form.as_p}}
+<body>
+    <div class="login">
 
-    <button type="submit">Iniciar sesion</button>
+        <div class="form">
 
-</form>
+            <form action="" method="POST">
 
+                <!--token POST-->
+                {% csrf_token %}
+              
+                {{form.as_p}}
 
-    </body>
+                <button type="submit" class="btn flat">Iniciar sesion</button>
+                
+            </form>
+            <br>
+            <p><a href="{% url 'Register' %}">Registrate</a></p>
+        </div>
+    </div>
+
+</body>
+
 </html>

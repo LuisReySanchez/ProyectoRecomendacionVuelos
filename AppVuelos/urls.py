@@ -4,10 +4,12 @@ from django.urls import path
 from AppVuelos import views
 
 from django.contrib.auth.views import LogoutView
-
+from AppVuelos.views import inicio
 urlpatterns = [
    
-    path('', views.inicio, name="inicio"), #esta era nuestra primer view
+    path('', views.inicio, name="inicio"), 
+    
+    path('mantenimiento', views.mantenimiento, name="mantenimiento"), 
     
     # Operadores
     path('Operadores/', views.OperadoresList.as_view(), name='Operadores'),

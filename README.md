@@ -25,3 +25,9 @@ Elaborado por: Luis Rey Sanchez
 		○ SuperUser:
 		usuario:luis
 		pwd:123456
+
+
+Otros Usuarios
+usuario3
+usuario3@yahoo.es
+Us@@.456

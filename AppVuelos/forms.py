@@ -1,3 +1,5 @@
+from logging import PlaceHolder
+from unicodedata import name
 from django import forms
 
 from django.contrib.auth.forms import UserCreationForm
@@ -19,15 +21,31 @@ class TrayectoFormulario(forms.Form):
     fechaSalida = forms.CharField()
     horaSalida = forms.IntegerField
     horaLlegada = forms.IntegerField()  
-    
-class UserEditForm(UserCreationForm):
-    
-    email=forms.EmailField(label="Modificar email")
-    password1=forms.EmailField(label="Contraseña",widget=forms.PasswordInput)
-    password2=forms.EmailField(label="Repetir la contraseña",widget=forms.PasswordInput)
-    first_name=forms.CharField
-    last_name=forms.CharField
+
+
+class UserRegisterForm(UserCreationForm):
+    username=forms.CharField(label="Nombre de Usuario",widget= forms.TextInput(attrs={'placeholder':'Ingrese usuario'}))
+    email=forms.EmailField(widget= forms.TextInput(attrs={'placeholder':'Ingrese su Email'}))
+    password1=forms.CharField(label="Contraseña",widget=forms.PasswordInput)
+    password2=forms.CharField(label="Repetir la contraseña",widget=forms.PasswordInput)
+    first_name=forms.CharField(label="Nombre",widget= forms.TextInput(attrs={'placeholder':'Ingrese nombre'}))
+    last_name=forms.CharField(label="Apellidos",widget= forms.TextInput(attrs={'placeholder':'Ingrese apellidos'}))
     
     class Meta:
         model=User
-        fields=['email','password1','password2','first_name','last_name']
+        fields=['username','email','password1','password2','first_name','last_name']    
+        
+        
+class UserEditForm(UserCreationForm):
+    
+    email=forms.EmailField(label="Modificar email")
+    password1=forms.CharField(label="Contraseña",widget=forms.PasswordInput)
+    password2=forms.CharField(label="Repetir la contraseña",widget=forms.PasswordInput)
+
+    
+    class Meta:
+        model=User
+        fields=['email','password1','password2']
+        
+        
+

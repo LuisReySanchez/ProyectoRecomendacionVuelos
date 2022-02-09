@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+{% extends 'AppVuelos/padre.html' %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +9,31 @@
     <title>Document</title>
 </head>
 <body>
-    
-<h1> Usuario delogueado</h1>
+
+    <h1> Usuario delogueado</h1>
 
 </body>
-</html>
+</html> -->
+
+<!-- {% load static %} -->
+
+
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+
+    <div class="header_inic">
+        
+        
+        <h1> Usuario delogueado</h1>
+        
+       
+
+    </div>
+    
+
+
+{% endblock contenidoQueCambia %}

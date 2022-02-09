@@ -1,27 +1,16 @@
-
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-        {% load static %}
 
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Principal </title>
 
-        
+        <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
 
-        <link rel="stylesheet" href="{% static 'AppVuelos/images/Portada.jpg' %}">
-
-        
-
-        <link rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
-
-        <!-- <img  src="{% static 'AppVuelos/images/Portada.jpg' %}" alt="My image"> -->
-
-        <!-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    
+   
 
     </head>
 
@@ -40,36 +29,28 @@
 
                 </li>
                 
+                
                 <li>
                     <a class="navbar-brand" href="{% url 'Trayectos' %}">Trayectos</a>
 
-
                 </li>
                 
-                    
-            </ul>
 
-    
+
+
+            </ul>
+            {% if not request.user.is_authenticated %}
+            <a class="btn-primary" href="{% url 'Login' %}">Ingresar</a>
+            {% endif %}
+
+            <!-- mensaje de login -->
+            {% if request.user.is_authenticated %}
+            <p class="text-muted small mb-4 mb-lg-0" style="color: white; font: size 14px; font-weight:bold"> Hola, {{user.username}}</p>
+            {% endif %}
+
         </div>
         
     </div>
-
-        <!-- Navigation-->
-
-        <!-- <nav class="container">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
-                
-                
-                <a class="navbar-brand" href="{% url 'Operadores' %}">Operadores</a>
-
-                <a class="navbar-brand" href="{% url 'Trayectos' %}">Trayectos</a>
-               
-                
-
-            </div>
-
-        </nav> -->
 
        
        {% block contenidoQueCambia %}
@@ -77,12 +58,12 @@
        {% endblock contenidoQueCambia %}
         
        <!-- Footer-->
-       <footer class="text-center text-white" >
-  
+       <footer  >
+
             <ul class="pie1">
-                <li><a href="#!">About</a></li>
-                <li><a href="#!">Contact</a></li>
-                <li><a href="#!">Terms of Use</a></li>
+                <li><a style="color: rgb(10, 11, 117) ;" href="{% url 'mantenimiento' %}">About</a></li>
+                <li><a style="color: rgb(10, 11, 117);" href="#!">Contact</a></li>
+                <li><a style="color: rgb(10, 11, 117);" href="{% url 'mantenimiento' %}">Terms of Use</a></li>
             </ul>
 
             <p class="pie2"> Your Website 2022. All Rights Reserved.</p>
