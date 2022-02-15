@@ -138,6 +138,6 @@ EMAIL_HOST="smtp.gmail.com"
 EMAIL_USE_TLS=True
 EMAI_PORT=587
 
-EMAIL_HOST_USER="rsluis814@gmail.com" #"Agregar email donde recibiras mensaje" 
+EMAIL_HOST_USER="" #"Agregar email donde recibiras mensaje" 
 
-EMAIL_HOST_PASSWORD="Luis.2020" # Agregar pwd de gmail
+EMAIL_HOST_PASSWORD="" # Agregar pwd de gmail
