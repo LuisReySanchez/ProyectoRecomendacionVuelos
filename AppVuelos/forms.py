@@ -7,7 +7,7 @@ from django import forms
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from sqlalchemy import false
+# from sqlalchemy import false
 
 class OperadorFormulario(forms.Form):
 
