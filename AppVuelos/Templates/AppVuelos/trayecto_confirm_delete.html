@@ -1,26 +1,31 @@
 
-<!-- Eliminar Operador-->
+<!--Eliminar Trayectos-->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrar</title>
-</head>
-<body>
+<!-- Herencia de padre.HTML-->
 
+{% extends "AppVuelos/padre.html" %}
+
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <div class="header_inic">
 
     <form method="post">{% csrf_token %}
         <br>
-        <h3>Eliminar Operador:</h3>
-        ¿Estas seguro de eliminar al Operador: "{{ object }}"?
+
+        <h3>Eliminar Trayecto:</h3>
+
+        <br>
+
+        ¿Estas seguro de eliminar el trayecto: "{{ object }}"?
         
-        <input type="submit" value="Borrar" />
+        &nbsp      
+        <input class="btn-primary" type="submit" value="Borrar" style="padding: 8px 20px; background-color:gray"/>           
     
     </form>
 
     
-</body>
-</html>
+</div>
+
+
+{% endblock %}

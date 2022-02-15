@@ -5,19 +5,22 @@ from AppVuelos import views
 
 from django.contrib.auth.views import LogoutView
 from AppVuelos.views import inicio
+
 urlpatterns = [
    
     path('', views.inicio, name="inicio"), 
     
     path('mantenimiento', views.mantenimiento, name="mantenimiento"), 
     
+    path('contacto/', views.contacto, name="contacto"), 
+    
     # Operadores
     path('Operadores/', views.OperadoresList.as_view(), name='Operadores'),
-    path('listaOperadores/', views.OperadorList.as_view(), name='List'),
-    path('detalleOperadores/<pk>/', views.OperadorDetail.as_view(), name='Detail'),
-    path('crearOperadores/', views.OperadorCreate.as_view(), name='New'),
-    path('actualizaOperadores/<pk>/', views.OperadorUpdate.as_view(), name='Edit'),
-    path('eliminaOperadores/<pk>/', views.OperadorDelete.as_view(), name='Delete'),
+    path('listaOperadores/', views.OperadorList.as_view(), name='List_Operadores'),
+    path('detalleOperadores/<pk>/', views.OperadorDetail.as_view(), name='Detail_Operadores'),
+    path('crearOperadores/', views.OperadorCreate.as_view(), name='New_Operadores'),
+    path('actualizaOperadores/<pk>/', views.OperadorUpdate.as_view(), name='Edit_Operadores'),
+    path('eliminaOperadores/<pk>/', views.OperadorDelete.as_view(), name='Delete_Operadores'),
     
     # Trayectos
     path('Trayectos/', views.TrayectosList.as_view(), name='Trayectos'),
@@ -38,6 +41,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name="AppVuelos/logout.html"), name='Logout'),
     
     #Editar Perfil
-    path('editarPerfil/', views.editarPerfil, name='EditarPerfil'),
+    path('EditarPerfil/', views.editarPerfil, name='EditarPerfil'),
     
 ]

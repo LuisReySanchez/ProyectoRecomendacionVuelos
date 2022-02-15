@@ -7,19 +7,28 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h3>Datos de Operadores: </h3>
+
+<div class="header_inic">
+    
+    <h3>Operadores: </h3>
+    <br>
+    <br>
+    
     <ul>
         {% for ope in object_list %}
 
             <li>
                 <p>Nombre: {{ ope.nombre }} </p>
+                <br>
             </li>
 
         {% endfor %}
+    
     </ul>
 
     <p>
-        <a href="{% url 'List' %}">Detalle</a>
+        <a href="{% url 'List_Operadores' %}"; style="font-size: 14px">Ver detalle</a>
     </p>
+</div>
 
 {% endblock %}

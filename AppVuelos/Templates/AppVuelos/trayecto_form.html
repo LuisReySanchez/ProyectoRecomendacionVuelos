@@ -1,21 +1,24 @@
 
-<!--Crear Operador-->
+<!--Formulario de Trayectos-->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso formulario</title>
-</head>
-<body>
+<!-- Herencia de padre.HTML-->
 
-    <form action="TrayectoFormulario" ,method="post">
+{% extends "AppVuelos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <div class="form_busqueda" >
+
+
+    <form method="post" style="line-height: 40px;">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Crear" />
+        <br>
+        <input type="submit" value="Enviar" />
     </form>
     
-</body>
-</html>
+</div>
+
+{% endblock %}

@@ -1,25 +1,48 @@
-{% extends 'AppVuelos/padre.html' %}
-
 {% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
 
-{% block contenidoQueCambia %}
+    
+</head>
 
-<p>
+<body style=" background-image: url('/static/AppVuelos/images/login.jpg') ; background-size: cover; ">
     <!--mensaje Login-->
-    <h1>Formulario - Editar Perfil</h1>
-    <h1>de {{usuario}}</h1>
+
+
+    <h1 style="position: absolute; top: 100px;left: 150px;">Editar Perfil</h1>
     
+    
+    <div class="login">
+
+        <div class="form">
         
-<form action="", method="post">{{% csrf_token %}}
+                    <form action="" method="POST"> 
+                        
+                        {% csrf_token %}
+
+                        <h1 style="text-align: center;">Usuario: {{usuario}}</h1>
+                        
+                        <br>
+
+                        <table>
+                            {{miFormulario.as_table}}
+                        </table>
+
+                        <input type="submit" , value ="Enviar">
+
+
+                    </form>
+                    
+        </div>
+
+    </div> 
     
-    <table>
-        {{miFormulario.as_table}}
-    </table>
+</body>
 
-    <input type="submit" value="Enviar">
-
-
-</form>    
-   
-{% endblock contenidoQueCambia %}
+</html>

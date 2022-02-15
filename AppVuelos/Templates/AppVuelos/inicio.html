@@ -8,18 +8,32 @@
 
     <div class="header_inic">
         
-        
-        <h3 >Vuelos baratos
-            <br>
-            <br>
-            ¡Los mejores precios para primavera y verano - reserva ahora!
-        </h3>
-        
-       
+        <h3 >
 
+            <!-- mensaje de login -->
+            {% if request.user.is_authenticated %}
+
+                <p>Hola {{user.username}}, hay super ofertas para tí</p>
+
+                <br>
+
+                <p>¡Aprovecha y busca los mejores viajes para ti - reserva ahora!</p>
+                
+            {% endif %}
+
+        </h3>
+        <br>
+        <br>
+
+        <div>
+            <img src="/static/AppVuelos/images/destinos.jpg"; style="width: 150%;" >    
+        </div>
+  
     </div>
     
 
+
+</div>
 
 {% endblock contenidoQueCambia %}
 

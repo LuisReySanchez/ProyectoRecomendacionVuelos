@@ -7,19 +7,36 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h3>Datos de Trayectos: </h3>
+
+<div class="header_inic">
+    
+    <h3>Cronograma de Trayectos: </h3>
+    <br>
+    <br>
+
     <ul>
+
+        <p style="font-weight: bold; color:#424876;"> &nbsp &nbsp Ruta &nbsp &nbsp Fecha Salida </p>
+        <br>
         {% for t in object_list %}
 
+        <!-- Nombre de Rutas:  -->
+
             <li>
-                <p>Nombre: {{ t.ruta}} - {{t.fechaSalida}} </p>
+                <p >{{ t.ruta}} - {{t.fechaSalida}} </p>
+                <br>
             </li>
 
         {% endfor %}
     </ul>
 
     <p>
-        <a href="{% url 'List_Trayectos' %}">Detalle</a>
+        <br>
+        <a href="{% url 'List_Trayectos' %}"; style="font-size: 14px;">Ver detalle</a>
     </p>
+
+</div>
+
+
 
 {% endblock %}

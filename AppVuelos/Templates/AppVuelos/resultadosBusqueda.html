@@ -1,28 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-<p>Resultados para las busqueda: {{ ruta }}</p>
 
-    {% if fechaSalida %}
+<!--Resultado de Busqueda-->
+
+<!-- Herencia de padre.HTML-->
+
+{% extends "AppVuelos/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+    <div class="header_inic" >
+    
+    <h3>Resultados de busqueda: </h3>
+    <br>
+    
+    <p style="font-weight: bold; color:#424876;"> &nbsp &nbsp Ruta &nbsp &nbsp &nbsp &nbsp Salida - Hora </p>
+    <br>
+    
+    {% if busqueda %}
         <ul>
 
-            {% for fecha in fechaSalida %}
+            {% for ruta_encontrada in busqueda %}
                 <li>
-                    {{fecha}}
+                    {{ruta_encontrada}}
                 </li>
+                
+                <br>
+
             {% endfor %}
 
         </ul>
         
     {% endif %}
    
+    <p>
+        <a href="{% url 'inicio' %}">Regresar</a>
+    </p>
 
-</body>
-</html>
+</div>
+
+{% endblock %}

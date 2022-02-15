@@ -1,26 +1,34 @@
 
-<!--Detalle de Operadores-->
-<!--Consulta sobre operador-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle</title>
-</head>
+<!--Listado de Trayectos + CRUD-->
 
+<!-- Herencia de padre.HTML-->
 
-<body>
+{% extends "AppVuelos/padre.html" %}
 
-    <p>Nombre del Trayecto: <i>{{ trayecto.ruta }}</i></p>
-    <p>Fecha Salida: <i>{{ trayecto.fechaSalida }}</i></p>
-    <p>Hora Salida: <i>{{ trayecto.horaSalida }}</i></p>
-    <p>Hora Llegada: <i>{{ trayecto.horaLlegada }}</i></p>
-    <p>
-        <a href="{% url 'List_Trayectos' %}">Regresar</a>
-    </p>
+{% load static %}
 
+{% block contenidoQueCambia %}
 
-</body>
-</html>
+    <div class="header_inic" >
+        
+        <h4>Detalle del Trayecto: </h4>
+        <br>
+
+        <p >Nombre del Trayecto: <i>{{ trayecto.ruta }}</i></p>
+        <br>
+
+        <p>Fecha Salida: <i>{{ trayecto.fechaSalida }}</i></p>
+        <br>
+
+        <p>Hora Salida: <i>{{ trayecto.horaSalida }}</i></p>
+        <br>
+
+        <p>Hora Llegada: <i>{{ trayecto.horaLlegada }}</i></p>
+        <br>
+        <p>
+            <a href="{% url 'List_Trayectos' %}">Regresar</a>
+        </p>
+
+    </div>
+
+{% endblock %}

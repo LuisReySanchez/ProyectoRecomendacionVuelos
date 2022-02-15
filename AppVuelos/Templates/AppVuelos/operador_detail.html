@@ -1,25 +1,33 @@
 
 <!--Detalle de Operadores-->
 <!--Consulta sobre operador-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle</title>
-</head>
+<!-- Herencia de padre.HTML-->
 
+{% extends "AppVuelos/padre.html" %}
 
-<body>
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<div class="header_inic" >
 
     <p>Nombre del Operador: <i>{{ operador.nombre }}</i></p>
+    <br>
+
     <p>Direccion: <i>{{ operador.direccion }}</i></p>
+    <br>
+
     <p>Web: <i>{{ operador.web }}</i></p>
+    <br>
+    
     <p>Telefono: <i>{{ operador.telefono }}</i></p>
+    
+    <br>
+
     <p>
-        <a href="{% url 'List' %}">Regresar</a>
+        <a href="{% url 'List_Operadores' %}">Regresar</a>
     </p>
 
-</body>
-</html>
+</div>
+
+{% endblock %}

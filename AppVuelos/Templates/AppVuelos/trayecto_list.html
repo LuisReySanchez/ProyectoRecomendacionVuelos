@@ -1,5 +1,5 @@
 
-<!--Listado de Operadores + CRUD-->
+<!--Listado de Trayectos + CRUD-->
 
 <!-- Herencia de padre.HTML-->
 
@@ -7,24 +7,34 @@
 
 {% load static %}
 {% block contenidoQueCambia %}
-    <h1>Datos de Trayectos: </h1>
-    <ul>
-        {% for t in object_list %}
 
-            <li>
-                <p>Nombre: {{ t.ruta }} </p>
-                <p> 
-                    <a href="{% url 'Detail_Trayectos' t.id %}">Ver |</a>  
-                    <a href="{% url 'Edit_Trayectos' t.id %}">Editar |</a>  
-                    <a href="{% url 'Delete_Trayectos' t.id %}">Borrar</a> 
-                </p> 
-            </li>
+    <div class="header_inic">
+        <h3>Datos de Trayectos: </h3>
+        <br>
+        <ul>
+            {% for t in object_list %}
 
-        {% endfor %}
-    </ul>
+                <li>
+                    <p >Trayecto: {{ t.ruta }} , {{ t.fechaSalida }} </p>
 
-    <!--: Agregar Operador-->
-    <a href="{% url 'New_Trayectos'  %}">Nuevo</a>
+                    <p> 
+                        <a style="font-size: 15px"; href="{% url 'Detail_Trayectos' t.id %}">Ver |</a>  
+                        <a style="font-size: 15px"; href="{% url 'Edit_Trayectos' t.id %}">Editar |</a>  
+                        <a style="font-size: 15px"; href="{% url 'Delete_Trayectos' t.id %}">Borrar</a> 
+
+                    </p> 
+                </li>
+
+                <br>
+
+            {% endfor %}
+        </ul>
+
+        <!--: Agregar Operador-->
+        <a href="{% url 'New_Trayectos'  %}">Agregar</a>
+        
+
+    </div>
 
 
-    {% endblock %}
+{% endblock %}

@@ -7,28 +7,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
-        
+
+    
 </head>
 
-<body>
-    <div class="login">
+<body style=" background-image: url('/static/AppVuelos/images/login.jpg') ; background-size: cover; ">
+    
+        <div class="login">
 
-        <div class="form">
+            <div class="form">
+    
+                <form action="" method="POST">
+    
+                    <!--token POST-->
+                    {% csrf_token %}
+                    <h1 style="text-align: center;">Login</h1>
+                    <br>
+                    {{form.as_p}}
+    
+                    <button type="submit" class="btn flat">Iniciar sesion</button>
+                    
+                </form>
+                <br>
 
-            <form action="" method="POST">
+                <p><a href="{% url 'Register' %}">Registrate</a></p>
+            </div>
 
-                <!--token POST-->
-                {% csrf_token %}
-              
-                {{form.as_p}}
+        </div> 
 
-                <button type="submit" class="btn flat">Iniciar sesion</button>
-                
-            </form>
-            <br>
-            <p><a href="{% url 'Register' %}">Registrate</a></p>
-        </div>
-    </div>
+
 
 </body>
 

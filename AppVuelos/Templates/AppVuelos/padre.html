@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,80 +7,129 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Principal </title>
-
-        <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
-
-   
+        
+        <link type="text/css" rel="stylesheet" href="{% static '/AppVuelos/css/styles.css' %}">
 
     </head>
 
 <body>
-   
-    <div class="container">
-        <div class="navbar">
+   <div class="main-header" >
+       
+        <h1 style="align-content: center">Recomendaciones de Vuelos</h1>
 
-            <ul>
-                <li>
-                    <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a> 
-                </li>
+   </div>
+
+        <div class="container" >
+
+            <div class="navbar">
+
+                <ul>
+                    <li>
+                        <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a> 
+                    </li>
+                    
+                    <li>
+                        <a class="navbar-brand" href="{% url 'Operadores' %}">Operadores</a>
+
+                    </li>
+                    
+                    
+                    <li>
+                        <a class="navbar-brand" href="{% url 'Trayectos' %}">Trayectos</a>
+
+                    </li>
+                    
+
+                </ul>
+
+                <!-- Busqueda -->
+                <!-- ----------------------------------------------------------------- -->
+
+                <form action="/buscar/" method="GET">
+                            
+                    <input type="text" name="ruta" placeholder="Busca un viaje..." 
+                    
+                        style="width: 300px; height: 30px; font-size: 13pt;border-radius: 5px;  border: 1px; padding-left: 5px;"; 
+                        id="ruta" >
+                    
+                    
+                    <input type="submit" name="buscaRuta" value="Buscar" 
+                        
+                        style="width: 80px; height: 30px;font-size: 13pt; border-radius: 5px; border: 1px ";
+                        
+                        id="buscaRuta">
+
+                </form>
+
+            <!-- Autenticacion -->
+            <!-- ----------------------------------------------------------------- -->
+            
+                <div>
+                               <!-- Sin login -->
+                {% if not request.user.is_authenticated %}
+
+                <a class="btn-primary" href="{% url 'Login' %}">Ingresar</a>
+
+                {% endif %}
+
+                <!-- mensaje de login -->
+                {% if request.user.is_authenticated %}
+            
+                <a class="btn-primary" href="{% url 'Logout' %}">Salir</a>
+
+                {% endif %}    
+                </div>
+     
                 
-                <li>
-                    <a class="navbar-brand" href="{% url 'Operadores' %}">Operadores</a>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <a class="navbar-brand" href="{% url 'EditarPerfil' %}"; style="position: absolute; top: 30px;left: 1800px;">Perfil</a>
+                    
+                    {% endif %}
+                        
+                </div>
+                <!-- Perfilcon login -->
 
-                </li>
-                
-                
-                <li>
-                    <a class="navbar-brand" href="{% url 'Trayectos' %}">Trayectos</a>
-
-                </li>
-                
-
-
-
-            </ul>
-            {% if not request.user.is_authenticated %}
-            <a class="btn-primary" href="{% url 'Login' %}">Ingresar</a>
-            {% endif %}
-
-            <!-- mensaje de login -->
-            {% if request.user.is_authenticated %}
-            <p class="text-muted small mb-4 mb-lg-0" style="color: white; font: size 14px; font-weight:bold"> Hola, {{user.username}}</p>
-            {% endif %}
+      
 
         </div>
         
     </div>
 
        
-       {% block contenidoQueCambia %}
+    {% block contenidoQueCambia %}
            
-       {% endblock contenidoQueCambia %}
+    {% endblock contenidoQueCambia %}
         
-       <!-- Footer-->
-       <footer  >
+    <!-- Footer-->
 
-            <ul class="pie1">
-                <li><a style="color: rgb(10, 11, 117) ;" href="{% url 'mantenimiento' %}">About</a></li>
-                <li><a style="color: rgb(10, 11, 117);" href="#!">Contact</a></li>
-                <li><a style="color: rgb(10, 11, 117);" href="{% url 'mantenimiento' %}">Terms of Use</a></li>
-            </ul>
+       <div class="barra_footer">
 
-            <p class="pie2"> Your Website 2022. All Rights Reserved.</p>
+            <footer  >
 
-            <p class="iconos-sociales">
-                <a class="imgFB" href="http://www.facebook.com" target="_blank"><img loading="lazy" alt="Sígueme en Facebook" height="35" width="35" src=" https://1.bp.blogspot.com/-Pop-U7OywXs/YPhkfrImyiI/AAAAAAAAA1Y/UBnVfTK9j2U-bIUqwZYMNSQPvz_l06mbwCPcBGAYYCw/s0/facebook-icono.png" title="Sígueme en Facebook"/></a>
-            </p>
+                <ul class="pie1">
+                    <li ><a style="color:#0d6efd;" href="{% url 'mantenimiento' %}">About</a></li>
+                    <li><a  style="color:#0d6efd;" href="{% url 'contacto' %}">Contact</a></li>
+                    <li><a  style="color:#0d6efd;" href="{% url 'mantenimiento' %}">Terms of Use</a></li>
+                </ul>
 
+                <p class="pie2">&copy Website 2022. All Rights Reserved.</p>
 
-            <p class="iconos-sociales">
-                <a class="imgINS" href="https://www.instagram.com" target="_blank"><img loading="lazy" alt="Sígueme en Instagram" height="35" width="35" src="https://1.bp.blogspot.com/-VFfOISywV0c/YPhkeRXuRQI/AAAAAAAAA1M/L75S9Usg5AovunH2Y-VzqJbaaY1LuK3eACPcBGAYYCw/s0/Instagram-icono.png" title="Sígueme en Instagram"/></a>        
-            </p>
+                <p class="iconos-sociales">
+                    <a class="imgFB" href="http://www.facebook.com" target="_blank"><img loading="lazy" height="35" width="35" src=" /static/AppVuelos/images/facebook-icono.png" title="Síguenos en Facebook"/></a>
+                </p>
 
 
+                <p class="iconos-sociales">
+                    <a class="imgINS" href="https://www.instagram.com" target="_blank"><img loading="lazy" height="35" width="35" src="/static/AppVuelos/images/instagram-icono.png" title="Síguenos en Instagram"/></a>        
+                </p>
 
-        </footer>
 
+
+            </footer>
+
+           
+       </div>
 
 
 </body>

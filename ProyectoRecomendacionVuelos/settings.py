@@ -120,9 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'AppVuelos\static'),)
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -131,3 +129,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ################################################
 # Redirige acceso por no estar logeado.
 LOGIN_URL="/login/"
+
+
+# Email
+################################################
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_USE_TLS=True
+EMAI_PORT=587
+
+EMAIL_HOST_USER="rsluis814@gmail.com" #"Agregar email donde recibiras mensaje" 
+
+EMAIL_HOST_PASSWORD="Luis.2020" # Agregar pwd de gmail

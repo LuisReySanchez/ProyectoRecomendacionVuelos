@@ -9,11 +9,13 @@
         <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
 
     </head>
-<body>
+<body style=" background-image: url('/static/AppVuelos/images/login.jpg') ; background-size: cover; ">
     <div class="login">
 
         <div class="form">    
             <form action="" method="POST">
+                <h1 style="text-align: center;">Registro</h1>
+                <br>
 
                 <!--token POST-->
                 {% csrf_token %}

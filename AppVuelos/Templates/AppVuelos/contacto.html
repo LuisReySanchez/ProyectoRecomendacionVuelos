@@ -1,0 +1,67 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="{% static 'AppVuelos/css/styles.css' %}">
+
+    
+</head>
+
+<body style=" background-image: url('/static/AppVuelos/images/contacto.jpg') ; background-size: cover; ">
+    
+    <div class="login">
+
+        <div class="form">
+                
+
+
+                <form action="" method="POST" >
+
+                    {% csrf_token %}
+
+                    <h1 style="text-align: center;">Contactanos</h1>
+                    
+                    <br>
+                    
+                    <table>
+
+                        {{contactoFormulario.as_table}}
+                        
+                    </table>
+                        <br>
+                        <br>
+                    <input type="submit" value="Enviar" style="background: #424876; color:white; font-weight: bold; cursor:pointer">
+
+                </form>
+
+                {% if "valido" in request.GET %}
+                 
+                <br>
+                <p style="color: #424876; font-weight: bold; text-align: center;"> Email enviado correctamente, gracias</p>
+
+                {% endif %}
+                
+                <br>
+
+
+                {% if "invalido" in request.GET %}
+                    
+                <p style="color: red;font-weight: bold; text-align: center;"> Información No enviada.</p>
+
+                {% endif %}
+            
+                <br>
+                
+                </div>
+
+        </div> 
+
+</body>
+
+</html>

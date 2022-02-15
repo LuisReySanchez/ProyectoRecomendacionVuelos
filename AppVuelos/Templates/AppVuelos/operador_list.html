@@ -6,25 +6,32 @@
 {% extends "AppVuelos/padre.html" %}
 
 {% load static %}
+
 {% block contenidoQueCambia %}
-    <h1>Datos de Operadores: </h1>
-    <ul>
-        {% for ope in object_list %}
 
-            <li>
-                <p>Nombre: {{ ope.nombre }} </p>
-                <p> 
-                    <a href="{% url 'Detail' ope.id %}">Ver |</a>  
-                    <a href="{% url 'Edit' ope.id %}">Editar |</a>  
-                    <a href="{% url 'Delete' ope.id %}">Borrar</a> 
-                </p> 
-            </li>
+    <div class="header_inic">
 
-        {% endfor %}
-    </ul>
+        <h3>Datos de Operadores: </h3>
+        <br>
+        <ul>
+            {% for ope in object_list %}
 
-    <!--: Agregar Operador-->
-    <a href="{% url 'New'  %}">Nuevo</a>
+                <li>
+                    <p>Nombre: {{ ope.nombre }} </p>
+                    <p> 
+                        <a style="font-size: 15px"; href="{% url 'Detail_Operadores' ope.id %}">Ver |</a>  
+                        <a style="font-size: 15px"; href="{% url 'Edit_Operadores' ope.id %}">Editar |</a>  
+                        <a style="font-size: 15px"; href="{% url 'Delete_Operadores' ope.id %}">Borrar</a> 
+                    </p> 
+                </li>
+                
+                <br>
 
+            {% endfor %}
+        </ul>
 
-    {% endblock %}
+        <!--: Agregar Operador-->
+        <a href="{% url 'New_Operadores'  %}">Agregar</a>
+    </div>    
+
+{% endblock %}

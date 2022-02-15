@@ -1,5 +1,9 @@
+
 from dataclasses import fields
+import django
 from django.shortcuts import redirect, render, HttpResponse
+from django.http import HttpResponse
+
 
 from AppVuelos.forms import OperadorFormulario,TrayectoFormulario, UserEditForm
 
@@ -25,6 +29,18 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 #Decoradores
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.views.generic.base import TemplateView
+
+
+#Envio mensaje
+from AppVuelos.forms import ContactoForm
+
+from django.shortcuts import redirect
+
+# EMail
+from django.core.mail import EmailMessage
+
 
 # Inicio
 ############################################################################
@@ -129,11 +145,49 @@ def buscar(request):
       if (request.method=='GET'):
             
             ruta=request.GET['ruta']
-            fechaSalida=Trayecto.objects.filter(ruta=ruta)
+            busqueda=Trayecto.objects.filter(ruta=ruta)
       
-            return render(request,"AppVuelos/resultadosBusqueda.html",{'fechaSalida':fechaSalida})
+            return render(request,"AppVuelos/resultadosBusqueda.html",{'busqueda':busqueda})
       else:
             return HttpResponse('No enviaste datos')
+
+
+############################################################################
+# CONTACTO
+############################################################################
+
+def contacto(request):
+      contacto=ContactoForm()
+      
+      if request.method=="POST":
+            
+            contacto=ContactoForm(data=request.POST)
+            
+            if contacto.is_valid():
+                  nombre=request.POST.get('nombre')
+                  email=request.POST.get('email')
+                  contenido=request.POST.get('contenido')
+                  
+                  email=EmailMessage(
+                        "Consulta de vuelos con Django", "El usuario nombre: {}, con mail: {}\n\n"
+                        "Tiene la siguiente duda: {}".format(nombre,email,contenido) ,"",
+                        
+                        # Agregar gmail a donde llega consulta
+                        #["Agregar mail Acá"],
+                        
+                        reply_to=[email])
+                  
+                  # Envio de email
+                  try:
+                        email.send()
+                        
+                        return redirect("/contacto/?valido")
+                  
+                  except:
+                        return redirect("/contacto/?invalido")
+            
+      return render(request, "AppVuelos/contacto.html",{'contactoFormulario':contacto})
+      
 
 
 ############################################################################
@@ -199,6 +253,8 @@ def register(request):
 
 # Edición de Usuario
 ############################################################################
+
+@login_required
 def editarPerfil(request):
       
       #Instancia Login
@@ -208,21 +264,24 @@ def editarPerfil(request):
             miFormulario=UserEditForm(request.POST)
             
             if miFormulario.is_valid():
-                  informacion=miFormulario.clean_data
+                  
+                  informacion=miFormulario.cleaned_data
                   
                   #Datos por modificar
                   usuario.email=informacion['email']
                   usuario.password1=informacion['password1']
                   usuario.password2=informacion['password2']
+                  usuario.first_name=informacion['first_name']
+                  usuario.last_name=informacion['last_name']
                   
                   usuario.save()
                   
                   return render(request,"AppVuelos/inicio.html" )
             
       else:
+
+            # Datos recuperados a modificar: email
             miFormulario=UserEditForm(initial={'email':usuario.email})
-      
-            return render(request, "AppVuelos/editarPerfil.html", {"miFormulario":miFormulario,"usuario":usuario})
-      
-      
+            
+      return render(request, "AppVuelos/editarPerfil.html", {"miFormulario":miFormulario,"usuario":usuario})
       
