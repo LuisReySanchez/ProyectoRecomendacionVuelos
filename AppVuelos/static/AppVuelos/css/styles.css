@@ -113,7 +113,7 @@ p.pie2 {
 .imgINS img{ 
     position: absolute;
     top: 30px;
-    left: 95%px;
+    left: 95%;
     
     transition:all 0.5s ease-out; border-radius:50px;
     }
